@@ -107,6 +107,16 @@ const NavBar = () => {
                   <FaUser /> Profile
                 </Link>
               </li>
+              <li className="">
+                <Link to={"/my-models"}>
+                  <FaUser /> My Models
+                </Link>
+              </li>
+              <li className="">
+                <Link to={"/my-downloads"}>
+                  <FaUser /> My Downloads
+                </Link>
+              </li>
               <li>
                 <a>
                   {" "}
