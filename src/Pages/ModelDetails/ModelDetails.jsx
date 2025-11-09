@@ -10,6 +10,7 @@ const ModelDetails = () => {
   const [model, setModel] = useState({});
   const [loading, setLoading] = useState(true);
   const { user } = use(AuthContext);
+  const [refetch, setRefetch] = useState(false)
 
   useEffect(() => {
     fetch(`https://3d-model-server-alpha.vercel.app/models/${id}`, {
@@ -23,7 +24,7 @@ const ModelDetails = () => {
         setModel(data.result);
         setLoading(loading);
       });
-  }, [user, loading, id]);
+  }, [user, loading, refetch, id]);
 
   // model delete
   const handleDelete = () => {
@@ -83,6 +84,7 @@ const ModelDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        setRefetch(!refetch)
 
         Swal.fire({
           title: "Download Successfully!",
